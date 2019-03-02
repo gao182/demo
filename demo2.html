@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo1</title>
+
+	<style type="text/css">
+	body{
+		margin: 0;
+		padding: 0;
+		font: 16px/1.5 \5FAE\8F6F\96C5\9ED1;
+	}
+    #header,#content{
+    	width: 600px;
+		margin:0 auto;
+    }
+    #header{
+    	text-align: center;
+    	margin-top: 20px;
+    }
+    .btnbox{
+    	text-decoration:none;
+		padding: 6px 8px;
+		color: black;
+		border-radius:3px;
+		transition:box-shadow 0.3s;
+    }
+    .btnbox:hover{
+    	box-shadow: 0 8px 18px 0 rgba(0,0,0,0.3);
+    }
+
+    .steal{
+    	background: #009688;
+    	color:#fff;
+    }
+    .yellow{
+    	background: #ffeb3b;
+    }
+    .orange{
+    	background: #ff9800;
+    }
+    .red{
+    	background: #f44336;
+    	color:#fff;
+    }
+    .green{
+    	background: #4caf50;
+    	color:#fff;
+    }
+    #content>div{
+    	margin-top: 30px;
+    }
+	.textar{
+		border: 1px solid #ccc;
+		border-radius:3px;
+		padding:1px 18px;
+	}
+	.textar.style2{
+		background: #ffe7e7;
+		border: none;
+		border-right: 8px solid red;
+		border-left: 8px solid red;
+		border-radius:0;
+	}
+	.textar.style3{
+		background: #ffffd7;
+		border: none;
+		border-top: 6px solid yellow;
+		border-bottom:  8px solid yellow;
+		border-radius:0;
+	}
+	.textar.style4{
+		background: #e7ffe7;
+		border: none;
+		border: 1px solid green;
+		border-bottom:  6px solid green;
+		border-radius:0;
+	}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<a class="btnbox steal" href>steal</a>
+		<a class="btnbox yellow" href>yellow</a>
+		<a class="btnbox orange" href>orange</a>
+		<a class="btnbox red" href>red</a>
+		<a class="btnbox green" href>green</a>
+	</div>
+	
+	<div id="content">
+		<div class="textar">
+			<p>在饥人谷是一个快乐的大家庭，在这里我会一步一步实现自己的梦想，加油2017，加油自己</p>
+		</div>
+		<div class="textar style2">
+			<p>在饥人谷是一个快乐的大家庭，在这里我会一步一步实现自己的梦想，加油2017，加油自己</p>
+		</div>
+		<div class="textar style3">
+			<p>在饥人谷是一个快乐的大家庭，在这里我会一步一步实现自己的梦想，加油2017，加油自己</p>
+		</div>
+		<div class="textar style4">
+			<p>在饥人谷是一个快乐的大家庭，在这里我会一步一步实现自己的梦想，加油2017，加油自己</p>
+		</div>
+	</div>
+</body>
+</html>
