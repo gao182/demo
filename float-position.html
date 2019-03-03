@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>float&position</title>
+	<meta charset="utf-8" >
+	<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+		font: 16px/1.5 \5FAE\8F6F\96C5\9ED1;
+		color:#303030;
+	}
+	nav{
+		width: 600px;
+		margin: 10px auto;
+	}
+	.nav-ul{
+		background: #f1f1f1;
+		box-shadow:0 4px 12px 0 rgba(0,0,0,0.2);
+	}
+	.nav-ul::after{
+		content: " ";
+		display: block;
+		clear:both;
+	}
+	.nav-ul>li{
+		float: left;
+		position: relative;
+	}
+	.nav-ul a{
+		padding: 8px 16px;
+		display: block;
+		text-decoration:none;
+		color:#303030;
+	}
+	.nav-ul a:hover{
+		background: #888;
+		color:white;
+	}
+	.morelink{
+		position: absolute;
+		top:100%;
+		box-shadow:0 6px 12px 0 rgba(0,0,0,0.2);
+		min-width:60px;
+		background: white;
+		display: none;
+	}
+	.nav-ul>li:hover .morelink{
+		display: block;
+	}
+
+
+	/*content样式*/
+	#content{
+		width: 600px;
+		margin: 80px auto;
+	}
+	.textar{
+		background:#4CAF50;
+		border-radius:3px;
+		padding:4px 16px;
+		color:#fff;
+		margin-top:30px;
+	}
+	.textar>h3{
+		font-size:24px;
+		float: left;
+		margin: 10px 0;
+	}
+	.textar .close{
+		font-size:24px;
+		float: right;
+		text-decoration:none;
+		font-weight:bold;
+		color:#fff;
+	}
+	.textar p{
+		clear:both;
+		padding: 12px 0;
+	}
+	.textar.style2{
+		background:#2196f3;
+	}
+	.textar.style3{
+		background:#f44336;
+	}
+	.textar.style4{
+		background:#ff9800;
+	}
+	</style>
+</head>
+
+<body>
+	<nav>
+		<ul class="nav-ul">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">作品</a></li>
+			<li>
+				<a href="#">更多</a>
+				<ul class="morelink">
+					<li><a href="#">GITHUB</a></li>
+					<li><a href="#">博客</a></li>
+					<li><a href="#">知乎</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+
+	<div id="content">
+		<div class="textar">
+			<h3>恭喜你</h3>
+			<a href="#" class="close">×</a>
+			<p>获得本周学霸，继续加油吧</p>
+		</div>
+		<div class="textar style2">
+			<h3>通知</h3>
+			<a href="#" class="close">×</a>
+			<p>晚上上课，不要忘了</p>
+		</div>
+		<div class="textar style3">
+			<h3>天啊</h3>
+			<a href="#" class="close">×</a>
+			<p>竟然几天没做任务</p>
+		</div>
+		<div class="textar style4">
+			<h3>警告</h3>
+			<a href="#" class="close">×</a>
+			<p>学如逆水行舟，不进则退</p>
+		</div>
+	</div>
+
+</body>
+</html>
+
