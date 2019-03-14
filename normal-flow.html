@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>normal flow</title>
+	<meta charset="utf-8" >
+	<style>
+	.hidden {
+		border: 1px solid red;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.txtalign span {
+		display: block;
+		width: 4em;
+		height: 1.4em;
+		border: 1px solid green;
+		text-align: justify;
+	}
+	.txtalign span::after {
+		content: "";
+		display: inline-block;
+		width: 100%;
+	}
+	.veralign {
+		font-size: 16px;
+		line-height: 20px;
+		padding: 9px 0;
+		text-align: center;
+		border: 1px solid red;
+	}
+	.multi-line {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+		border: 1px solid green;
+	}
+	</style>
+</head>
+
+<body>
+	<div class="hidden">
+		子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知，而不愠，不亦君子乎？”
+
+国学有子曰：“其为人也孝弟，而好犯上者，鲜矣；不好犯上，而好作乱者，未之有也。君子务本，本立而道生。孝弟也者，其为仁之本与！”
+
+国学子曰：“巧言令色，鲜矣仁！”
+	</div>
+	<div class="txtalign">
+		<span>姓名</span>
+		<span>联系方式</span>
+	</div>
+	<div class="veralign">
+		div高 40px ，文字垂直居中
+	</div>
+	<div class="multi-line">
+		子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知，而不愠，不亦君子乎？”
+
+国学有子曰：“其为人也孝弟，而好犯上者，鲜矣；不好犯上，而好作乱者，未之有也。君子务本，本立而道生。孝弟也者，其为仁之本与！”
+
+国学子曰：“巧言令色，鲜矣仁！”
+
+曾子曰：“吾日三省吾身，为人谋而不忠乎？与朋友交而不信乎？传不习乎？”
+
+国学子曰：“道千乘之国，敬事而信，节用而爱人，使民以时。”
+
+国学子曰：“弟子入则孝，出则悌，谨而信，泛爱众，而亲仁。行有余力，则以学文。”
+
+国学子夏曰：“贤贤易色；事父母，能竭其力，事君，能致其身；与朋友交，言而有信。虽曰未学，吾必谓之学矣。”
+	</div>
+</body>
+</html>
+
