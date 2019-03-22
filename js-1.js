@@ -1,3 +1,11 @@
+//遍历数组
+var arr = [3,4,5];
+for(var i=0 ; i < arr.length ; i++) {
+	console.log("第"+(i+1)+"个数是："+arr[i]);
+}
+
+
+
 //if-else
 var a = 10;
 if(a > 0) {
@@ -42,13 +50,13 @@ for(var i=0 ; i < arry.length ; i++) {
 	console.log("第"+(i+1)+"个数是："+arry[i]);
 }
 
-//for-in 遍历对象的用法
+//for-in 遍历对象
 for(var i in arry) {
 	console.log(arry[i]);
 }
 
 
-//break 和 continue 的用法
+//break 和 continue 
 for(var i=1 ; i < 10 ; i++) {
 	if(i%2 === 0) {
 		break
