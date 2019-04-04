@@ -128,7 +128,7 @@ var Top250 = {
     _this.isLoading = true;
     _this.$loadicon.show();
     $.ajax({
-      url: 'http://api.douban.com/v2/movie/top250',
+      url: 'https://api.douban.com/v2/movie/top250',
       data: {
         start: _this.index,
         count: 20
@@ -172,7 +172,7 @@ var USdetail = {
     _this.isLoading = true;
     _this.$loadicon.show();
     $.ajax({
-      url: 'http://api.douban.com/v2/movie/us_box',
+      url: 'https://api.douban.com/v2/movie/us_box',
       data: {
         start: _this.index,
         count: 20
@@ -234,7 +234,7 @@ var Search = {
     _this.isLoading = true;
     _this.$loadicon.show();
     $.ajax({
-      url: 'http://api.douban.com/v2/movie/search',
+      url: 'https://api.douban.com/v2/movie/search',
       data: {
         q: keyvalue
       },
