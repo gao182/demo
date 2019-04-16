@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>轮播</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<style type="text/css">
+		body,div,ul,li,a,img{
+			margin: 0;
+			padding: 0;
+		}
+		main {
+			width: 910px;
+			margin: 20px auto;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		ul {
+			list-style: none;
+			display: flex;
+		}
+		a {
+			text-decoration: none;
+		}
+		.panel {
+			width: 250px;
+			height: 360px;
+			position: relative;
+			overflow: hidden;
+		}
+		.img-ct {
+			position: absolute;
+		}
+		.next {
+			position: absolute;
+			top: calc(50% - 16px);
+			padding: 12px 2px;
+			text-align: center;
+			background-color: #eee;
+			color: black;
+			font-size: 12px;
+			cursor: pointer;
+			opacity: .6;
+		}
+		.left-btn {
+			left: 4px;
+		}
+		.right-btn {
+			right: 4px;
+		}
+		.next:hover {
+			opacity: 1;
+		}
+		ul.btn-bottom {
+			position: absolute;
+			bottom: 8px;
+			width: 100%;
+			justify-content: center;
+			text-align: center;
+		}
+		.btn-bottom li {
+			width: 8px;
+			height: 8px;
+			margin: 0 4px;
+			background-color: #f8f8f8;
+			border-radius: 4px;
+			cursor: pointer;
+			opacity: .6;
+		}
+		.btn-bottom li:hover {
+			opacity: 1;
+			background-color: #444;
+		}
+		li.active {
+			opacity: 1;
+			background-color: #444;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<div class="panel">
+		<ul class="img-ct">
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.hxzdhn.com/uploads/tu/bj/slt/1033312044-9.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.mmonly.cc/uploads/tu/xl/slt/201603/340.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.mmonly.cc/uploads/150616/2-150616143G2K8.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.hxzdhn.com/uploads/tu/bj/slt/nqnzpcbntor.jpg" alt=""></a>
+			</li>
+		</ul>
+		<div class="left-btn next"><</div>
+		<div class="right-btn next">></div>
+		<ul class="btn-bottom">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="panel">
+		<ul class="img-ct">
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.hxzdhn.com/uploads/tu/bj/slt/1033312044-9.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.mmonly.cc/uploads/tu/xl/slt/201603/340.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.mmonly.cc/uploads/150616/2-150616143G2K8.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.hxzdhn.com/uploads/tu/bj/slt/nqnzpcbntor.jpg" alt=""></a>
+			</li>
+		</ul>
+		<div class="left-btn next"><</div>
+		<div class="right-btn next">></div>
+		<ul class="btn-bottom">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="panel">
+		<ul class="img-ct">
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.hxzdhn.com/uploads/tu/bj/slt/1033312044-9.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.mmonly.cc/uploads/tu/xl/slt/201603/340.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.mmonly.cc/uploads/150616/2-150616143G2K8.jpg" alt=""></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="http://t1.hxzdhn.com/uploads/tu/bj/slt/nqnzpcbntor.jpg" alt=""></a>
+			</li>
+		</ul>
+		<div class="left-btn next"><</div>
+		<div class="right-btn next">></div>
+		<ul class="btn-bottom">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</main>
+
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
