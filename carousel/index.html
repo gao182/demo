@@ -3,6 +3,7 @@
 <head>
 	<title>轮播</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<style type="text/css">
 		body,div,ul,li,a,img{
@@ -76,6 +77,12 @@
 			opacity: 1;
 			background-color: #444;
 		}
+		@media (max-width: 900px){
+			main {
+				width: 90%;
+				justify-content: space-around;
+			}
+		}	
 	</style>
 </head>
 <body>
