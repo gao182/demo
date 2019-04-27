@@ -83,7 +83,8 @@ function btnBind(){
 
 function drawCanvas(){
   var isUsing = false,
-      pointObj = {x: 0, y : 0}
+      pointObj = [],
+      firstPoint = {x: 0, y : 0}
 
   if (document.body.ontouchstart !== undefined) {
     canvas.ontouchstart = function(e){
@@ -115,9 +116,10 @@ function drawCanvas(){
     if (isEraser) {
       panel.clearRect(x - w/2, y - w/2, w, w)
     }else {
+      firstPoint.x = x
+      firstPoint.y = y
       drawPoint(x,y)
-      pointObj.x = x
-      pointObj.y = y
+      pointObj.push({x, y})
     }
     isUsing = true
   }
@@ -130,22 +132,27 @@ function drawCanvas(){
       panel.clearRect(x - w/2, y - w/2, w, w)
     }else {
       drawPoint(x,y)
-      var newPointObj = {x: x, y : y}
-      drawLine(pointObj.x, pointObj.y, newPointObj.x, newPointObj.y)
-      pointObj = newPointObj
+      pointObj.push({x, y})
+      if (pointObj.length > 2) {
+        var lastTwoPoints = pointObj.slice(-2)
+        var controlPoint = lastTwoPoints[0]
+        var endPoint = lastTwoPoints[1]
+        drawLine(firstPoint, controlPoint, endPoint)
+        firstPoint = endPoint
+      }
     }
   }
   function drawPoint(x,y){
     panel.beginPath()
-    panel.arc(x, y, bsSize, 0, Math.PI * 2)
+    panel.arc(x, y, bsSize - .4, 0, Math.PI * 2)
     panel.fill()
     panel.closePath()
   }
-  function drawLine(x1,y1,x2,y2){
+  function drawLine(first,control,end){
     panel.beginPath()
-    panel.moveTo(x1,y1)
-    panel.lineTo(x2,y2)
     panel.lineWidth = bsSize*2
+    panel.moveTo(first.x, first.y)
+    panel.quadraticCurveTo(control.x, control.y, end.x, end.y)
     panel.stroke()
     panel.closePath()
   }
