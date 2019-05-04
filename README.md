@@ -1,7 +1,7 @@
 
 ## 1. 无限轮播 
-代码地址(https://github.com/gao182/plugin-test/blob/master/carousel.html)
-预览地址(https://gao182.github.io/plugin-test/carousel.html)
+[代码地址](https://github.com/gao182/plugin-test/blob/master/carousel.html)
+[预览地址](https://gao182.github.io/plugin-test/carousel.html)
 
 ### 无限轮播原理
 分别克隆首个轮播节点和最后的轮播节点，将克隆的最后的轮播节点通过prepend加到页面轮播的最前面，同理，将克隆的首个节点通过append加到页面轮播的最后。
@@ -10,8 +10,8 @@ css设置轮播节点的浮动，js设置轮播节点的父容器总宽，并让
 
 
 ## 2. 正反两面切换
-代码地址(https://github.com/gao182/plugin-test/blob/master/Login-transform.html)
-预览地址(https://gao182.github.io/plugin-test/Login-transform.html)
+[代码地址](https://github.com/gao182/plugin-test/blob/master/Login-transform.html)
+[预览地址](https://gao182.github.io/plugin-test/Login-transform.html)
 
 ### 原理
 通过定位，让两个元素重叠，通过transform的rotateY让元素平移翻转,backface-visibility即隐藏该元素的背面
@@ -21,16 +21,16 @@ css设置轮播节点的浮动，js设置轮播节点的父容器总宽，并让
 
 
 ## 3. 标签jQuery插件
-代码地址(https://github.com/gao182/plugin-test/blob/master/tab_jquery.html)
-预览地址(https://gao182.github.io/plugin-test/tab_jquery.html)
+[代码地址](https://github.com/gao182/plugin-test/blob/master/tab_jquery.html)
+[预览地址](https://gao182.github.io/plugin-test/tab_jquery.html)
 
 ### 原理
 通过 `$.fn.exampleName = exampleFunction` 来创建插件的方法 ,通过 `$('').exampleName()` 来调用方法
 
 
 ## 4. waterfall 
-代码地址(https://github.com/gao182/plugin-test/blob/master/waterfall.html)
-预览地址(https://gao182.github.io/plugin-test/waterfall.html)
+[代码地址](https://github.com/gao182/plugin-test/blob/master/waterfall.html)
+[预览地址](https://gao182.github.io/plugin-test/waterfall.html)
 
 ### 懒加载原理
 先将 img 标签中的 src 链接设为示例图片（例如空白图片），并将其真正的图片地址存在img标签的自定义的属性中(例如 data-src)。
