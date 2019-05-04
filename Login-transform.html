@@ -4,6 +4,7 @@
 <head>
 	<title>登录|注册</title>
 	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width,user-scalable=no,unitial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_1104813_gxfernujehg.css">
 	<style>
 		/* background and nav */
@@ -39,10 +40,10 @@
 		#login.active {
 			border-bottom: 2px solid #f6f6f6;
 		}
-		/* flip content bg:http://img.hb.aicdn.com/41f89b3105eeba1f66be12e1284bc489bb930ae6549b6-wNxzpZ */
+		/* flip content */
 		main {
 			height: 100%;
-			background:linear-gradient( to right top,rgba(31, 24, 5, .32),rgba(227, 206, 139, .12)), url(http://img.hb.aicdn.com/95843fc783ca842aaedd31bfe41e48e4aeb915663e495-2OySf5) no-repeat;
+			background:linear-gradient( to right top,rgba(31, 24, 5, .32),rgba(227, 206, 139, .12)), url(http://img.hb.aicdn.com/41f89b3105eeba1f66be12e1284bc489bb930ae6549b6-wNxzpZ) no-repeat;
 			background-size: cover;
 			color: #444;
 		}
@@ -118,7 +119,7 @@
 		}
 		.flip-box.register .flip.login-box,
 		.flip-box.login .flip.register-box {
-			transform: translate(-50%, -50%) rotateY(180deg);   /*沿着Y轴翻转0度*/
+			transform: translate(-50%, -50%) rotateY(180deg);   /*沿着Y轴翻转180度*/
 			transition: all 2s;        /*所有效果过度时间2s*/
 			backface-visibility: hidden;  /*隐藏被旋转的 div 元素的背面*/
 		}
@@ -145,53 +146,9 @@
 			letter-spacing: 1.2px;
 			opacity: 0.6;
 		}
-		@media screen and (max-device-width: 600px){
-			header .left-title {
-				font-size: 74px;
-			}
-			header #login ,
-			header .icon-user-circle {
-				font-size: 52px;
-			}
-			#login.active {
-				border-bottom: 4px solid #f6f6f6;
-			}
-			main .close i {
-				font-size: 44px;
-			}
-			main .tags a {
-				margin: 30px 40px;
-				font-size: 64px;
-			}
-			.tags .active {
-				border-bottom: 4px solid #444;
-			}
-			main .input-field input {
-				padding: 6px 74px;
-				margin-bottom: 20px;
-				font-size: 44px;
-				border: none;
-				border-bottom: 4px solid #e0d7ce;
-				color: #444;
-			}
-			main .input-field i {
-				font-size: 44px;
-			}
-			main .btn-submit {
-				margin-bottom: 30px;
-				font-size: 44px;
-				border: none;
-				border-radius: 44px;
-			}
-			.error-bar{
-				height: 48px;
-				font-size: 36px;
-				line-height: 40px;
-				color: #da2c1f;
-			}
-			footer span {
-				font-size: 30px;
-				font-weight: lighter;
+		@media (max-width: 600px){
+			main .flip {
+				padding: 20px 20px;
 			}
 		}
 	</style>

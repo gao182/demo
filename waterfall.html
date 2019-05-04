@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>sina</title>
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_1125682_z5dv53ar5rm.css">
+	<style>
+		html,body,h2,ul,li,img,p{
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+			color: #222;
+		}
+		.clearfix:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		main {
+			width: 860px;
+			margin: 20px auto;
+			text-align: center;
+			font: 16px/1.4 Microsoft YaHei,Helvetica Neue,Helvetica,STHeiTi,Arial,sans-serif;
+		}
+		main > h2 {
+			margin-bottom: 20px;
+			color: #008af5;
+		}
+		main > ul {
+			position: relative;
+			margin: 0 auto;
+			padding-top: 20px;
+		}
+		main > ul > li {
+			position: absolute;
+			padding: 6px;
+			margin: 16px 12px;
+			border: 1px solid #ccc;
+		}
+		img {
+			width: 234px;
+		}
+		ul p {
+			margin-top: 12px;
+			width: 234px;
+			text-align: left;
+		}
+		@keyframes rotate {
+			0% {transform: rotate(0deg);}
+			100% {transform: rotate(360deg);}
+		}
+		.load span {
+			display: inline-block;
+			font-size: 30px;
+			animation: 1s rotate linear infinite;
+		}
+		.news-item.s1{
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<h2>今日要闻</h2>
+		<ul class="news clearfix">
+			<li class="news-item s1">
+				<a href="#">
+					<img src="https://n.sinaimg.cn/front/23/w480h343/20190407/EHag-hvhrcxm8172394.jpg" alt=" " data-src=" ">
+					<p>此物吃着比猪肉都香，清肝毒治口臭，增强体质降三高</p>
+				</a>
+			</li>
+<!-- 			<li class="news-item">
+				<a href="#">
+					<img src="https://n.sinaimg.cn/front/23/w480h343/20190407/EHag-hvhrcxm8172394.jpg" alt=" " data-src=" ">
+					<p>此物吃着比猪肉都香，清肝毒治口臭，增强体质降三高</p>
+				</a>
+			</li>  -->
+		</ul>
+		<div class="load">
+			<span class="iconfont icon-load"></span>
+		</div>
+	</main>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript">
+		var Common = {
+			createNode : function(list){
+				var $node = $('<li class="news-item">\
+					<a href="#" target="_blank">\
+						<img src="https://n.sinaimg.cn/front/23/w480h343/20190407/EHag-hvhrcxm8172394.jpg" alt=" " data-src=" ">\
+						<p>此物吃着比猪肉都香，清肝毒治口臭，增强体质降三高</p>\
+					</a>\
+				</li>');
+				$node.find('a').attr('href', list.URL);
+				$node.find('img').attr('src', function(){
+					if (list.allPics.pics[0]) {
+						var src = list.allPics.pics[0].imgurl
+						var newsrc = src.replace( 'https://k.sinaimg.cn/n/' , 'https://n.sinaimg.cn/');
+						newsrc = newsrc.replace(/\/\w{3,}\.jpg$/ , '')
+						return newsrc;
+					}else { 
+						$node.find('img').hide();
+					}
+				});
+				$node.find('p').text(list.title);
+
+				return $node;
+			},
+			calHeight : function(sum){
+				if ($(window).height() + $(window).scrollTop() >= sum) {
+					return true;
+				}
+			}
+		}
+
+		//新闻加载
+		var Newsload = {
+			init : function(){
+				var _this = this;
+				this.$news = $('.news');
+				this.$panel = $('main');
+				this.$load = $('.load');
+				this.isload = false;
+				// this.isEnd = false;
+				this.page = 1;
+				this.clock
+
+				this.getData(function(obj){
+					_this.renderData(obj);
+				});
+				this.bind();
+			},
+			bind : function(){
+				var _this = this;
+				$(window).scroll(function(){
+					if (_this.clock) {
+						clearTimeout(_this.clock);
+					}
+					_this.clock = setTimeout(function(){
+						if (Common.calHeight(_this.$panel.outerHeight() - 20)) {
+							_this.getData(function(obj){
+								_this.renderData(obj);
+							});
+						}
+					}, 300)
+				})
+			},
+			getData : function(callback){
+				var _this = this;
+				if (this.isload) { return}
+				this.isload = true;
+				this.$load.show();
+
+				$.ajax({
+					url : "https://interface.sina.cn/wap_api/layout_col.d.json",
+					data : {
+						show_num : 20,
+						page : _this.page
+					},
+					dataType : "jsonp",
+					jsonp : "jsoncallback",
+				}).success(function(obj){
+					callback(obj);
+					_this.page += 1;
+					_this.$load.hide();
+					$('.s1').hide();
+					_this.isload = false;
+				}).error(function(){
+					console.log("error data");
+					_this.isload = false;
+				})
+			},
+			renderData : function(obj){
+				var _this = this;
+				var listobj = obj.result.data.list
+
+				listobj.forEach(function(list){
+					var $list = Common.createNode(list);
+
+					$list.find('img').load(function(){
+						_this.$news.append($list);
+
+						waterfall($list);
+					})
+				})
+			}
+		}
+
+		var rowArryheight = [],
+				imgWidth = $('.news-item').outerWidth(true);
+		var rows = Math.floor($('main').width()/imgWidth);
+		for(var i=0; i<rows; i++){
+			rowArryheight.push(0)
+		}
+
+		// //新闻图片处理 瀑布流
+		function waterfall($list){
+			var minIndex = 0;
+			var minCalHeight = rowArryheight[0];
+			
+			for(var i = 0; i < rowArryheight.length ; i++){
+				if (rowArryheight[i] < minCalHeight) {
+					minIndex = i;
+					minCalHeight = rowArryheight[i];
+				}
+			}
+
+			$('ul').css({
+				width: rowArryheight.length * imgWidth
+			});
+			$('.news').height(Math.max.apply(null,rowArryheight));
+			$list.css({
+				left: imgWidth * minIndex,
+				top: minCalHeight
+			});
+			rowArryheight[minIndex] += $list.outerHeight(true);
+		}
+		Newsload.init();
+	</script>
+</body>
+</html>
+
