@@ -21,8 +21,8 @@ css设置轮播节点的浮动，js设置轮播节点的父容器总宽，并让
 
 
 ## 3. 标签jQuery插件
-[代码地址](https://github.com/gao182/plugin-test/blob/master/tab_jquery.html)
-[预览地址](https://gao182.github.io/plugin-test/tab_jquery.html)
+[代码地址](https://github.com/gao182/plugin-test/blob/master/tab-jquery.html)
+[预览地址](https://gao182.github.io/plugin-test/tab-jquery.html)
 
 ### 原理
 通过 `$.fn.exampleName = exampleFunction` 来创建插件的方法 ,通过 `$('').exampleName()` 来调用方法
